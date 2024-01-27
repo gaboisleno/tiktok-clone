@@ -1,0 +1,21 @@
+.actions {
+  position: absolute;
+  bottom: 128px;
+  right: 16px;
+  gap: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.action {
+  cursor: pointer;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  padding: 0;
+  width: 64px;
+  height: 64px;
+}

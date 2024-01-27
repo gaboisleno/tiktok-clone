@@ -1,0 +1,56 @@
+.video-caption {
+  background: rgb(0, 0, 0);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 0) 100%);
+
+  position: absolute;
+  width: 100%;
+  color: white;
+  bottom: 0px;
+  left: 0px;
+}
+
+.caption-wrapper {
+  margin: 0 90px 20px 20px;
+}
+
+.video-caption__username {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.video-caption__description {
+  max-width: 285px;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.video-caption__music {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.track {
+  overflow: hidden;
+  margin-left: 20px;
+}
+
+.track-anim {
+  animation: carousel 3s infinite linear;
+}
+
+.track-anim > * {
+  padding-right: 1rem;
+  display: inline-block;
+  font-size: 15px;
+}
+
+@keyframes carousel {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% + 36px));
+  }
+}
