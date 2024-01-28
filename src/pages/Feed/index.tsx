@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { getVideos } from '../services/Videos.service';
-import VideoPlayer from '../components/VideoPlayer/VideoPlayer';
-import './index.css';
+import { getVideos } from '../../services/VideosService';
+import VideoPlayer from '../../components/VideoPlayer/VideoPlayer';
+import './stles.module.css';
 
 export default function FeedVideos() {
   const [videos, setVideos] = useState<any[]>(Array());
