@@ -1,15 +1,7 @@
-import { useEffect } from 'react';
+import FeedVideos from './FeedVideos/FeedVideos';
 import './App.css';
-import FeedVideos from './components/FeedVideos/FeedVideos';
-import { getVideos } from './services/Videos.service';
 
 function App() {
-  useEffect(() => {
-    getVideos().then((videos) => {
-      console.log(videos);
-    });
-  });
-
   return (
     <div className="App">
       <main>

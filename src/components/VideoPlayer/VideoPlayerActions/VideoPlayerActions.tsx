@@ -1,7 +1,13 @@
 import { Heart, Comment, Foward } from '../../Icons/index';
 import './index.css';
 
-export default function VideoPlayerActions({ likes = 12, comments = 12, shares = 12, hearted = false }: any) {
+export default function VideoPlayerActions({
+  likes = 12,
+  comments = 12,
+  shares = 12,
+  hearted = false,
+  avatar = '',
+}: any) {
   const handleLike = () => {
     window.alert('like');
   };
@@ -14,6 +20,11 @@ export default function VideoPlayerActions({ likes = 12, comments = 12, shares =
 
   return (
     <aside className="actions">
+      <div className="profile">
+        <img src={avatar} alt="" className="avatar" />
+        <img src="assets/add.png" alt="" className="follow" />
+      </div>
+
       <button className="action" onClick={handleLike}>
         <Heart />
         <span title="likes">{likes}</span>
@@ -24,9 +35,13 @@ export default function VideoPlayerActions({ likes = 12, comments = 12, shares =
         <span title="comments">{comments}</span>
       </button>
 
-      <button className="action" onClick={handleShare}>
+      <button className="action share" onClick={handleShare}>
         <Foward />
         <span title="shares">{shares}</span>
+      </button>
+
+      <button className="action album">
+        <img alt="album" src={avatar} />
       </button>
     </aside>
   );

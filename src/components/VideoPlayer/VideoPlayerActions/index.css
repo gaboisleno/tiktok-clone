@@ -1,10 +1,12 @@
 .actions {
+  z-index: 5;
   position: absolute;
-  bottom: 128px;
-  right: 16px;
+  bottom: 16px;
+  right: 8px;
   gap: 15px;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .action {
@@ -16,6 +18,53 @@
   align-items: center;
   background-color: transparent;
   padding: 0;
-  width: 64px;
-  height: 64px;
+  width: 56px;
+  height: 56px;
+}
+
+.profile {
+  position: relative;
+  margin-bottom: 12px;
+  display: flex;
+}
+
+.profile > .avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 100%;
+  object-fit: cover;
+  margin: auto;
+  border: 2px solid #fff;
+}
+.profile > .follow {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  bottom: -16px;
+  transform: translateX(-50%);
+  left: 50%;
+}
+
+.share {
+  margin-block-end: 24px;
+}
+
+.album {
+  animation: rotating 5s infinite linear;
+}
+
+.album img {
+  width: 42px;
+  height: 42px;
+  border-radius: 100%;
+  object-fit: cover;
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

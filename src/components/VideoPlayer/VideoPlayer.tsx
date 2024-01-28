@@ -1,29 +1,44 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { clsx } from 'clsx';
-import './index.css';
-
 import VideoPlayerActions from './VideoPlayerActions/VideoPlayerActions';
 import VideoPlayerDescription from './VideoPlayerDescription/VideoPlayerDescription';
+import useIntersectionVideo from '../../hooks/useIntersectionVideo';
+import './index.css';
 
 export default function VideoPlayer(params: any) {
+  const videoRef: any = useRef(null);
+  const isOnScreen = useIntersectionVideo(videoRef);
   const [playing, setPlaying] = useState(false);
-  const video: any = useRef();
-
-  const handlePlay = () => {
-    playing ? video.current.pause() : video.current.play();
-    setPlaying(!playing);
-  };
 
   const PlayerClassName = clsx('player', {
     ['hidden']: playing,
   });
 
+  const handlePlay = () => {
+    playing ? videoRef.current.pause() : videoRef.current.play();
+    setPlaying(!playing);
+  };
+
+  const handleIsOnScreen = (val: boolean) => {
+    val ? videoRef.current.play() : videoRef.current.pause();
+    setPlaying(val);
+  };
+
+  useEffect(() => {
+    handleIsOnScreen(isOnScreen);
+  }, [isOnScreen]);
+
   return (
-    <div onClick={handlePlay} className="video-wrapper">
-      <video className="video" ref={video} src={params.src} controls={false} loop></video>
+    <div className="video-wrapper">
+      <video className="video" ref={videoRef} src={params.src} controls={false} loop onClick={handlePlay}></video>
       <button className={PlayerClassName} />
-      <VideoPlayerActions likes={params.likes} shares={params.shares} comments={params.comments} />
-      <VideoPlayerDescription description={params.description} author={params.author} track={params.track} />
+      <VideoPlayerActions
+        likes={params.likes}
+        shares={params.shares}
+        comments={params.comments}
+        avatar={params.users.avatar}
+      />
+      <VideoPlayerDescription description={params.description} username={params.users.username} track={params.song} />
     </div>
   );
 }
