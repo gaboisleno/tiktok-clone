@@ -1,6 +1,6 @@
-import FeedVideos from './pages/Feed';
+import FeedVideos from './pages/Feed/Feed';
 import { Route } from 'wouter';
-import Upload from './pages/Upload';
+import Upload from './pages/Upload/Upload';
 import './App.css';
 
 function App() {

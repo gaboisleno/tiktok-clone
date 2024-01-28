@@ -34,7 +34,7 @@
   border-radius: 100%;
   object-fit: cover;
   margin: auto;
-  border: 2px solid #fff;
+  border: 1px solid #fff;
 }
 .profile > .follow {
   position: absolute;

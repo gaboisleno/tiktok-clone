@@ -3,6 +3,7 @@ import { clsx } from 'clsx';
 import VideoPlayerActions from './VideoPlayerActions/VideoPlayerActions';
 import VideoPlayerDescription from './VideoPlayerDescription/VideoPlayerDescription';
 import useIntersectionVideo from '../../hooks/useIntersectionVideo';
+import { supabaseStorageUrl } from '../../services/supabase';
 import './index.css';
 
 export default function VideoPlayer(params: any) {
@@ -30,7 +31,15 @@ export default function VideoPlayer(params: any) {
 
   return (
     <div className="video-wrapper">
-      <video className="video" ref={videoRef} src={params.src} controls={false} loop onClick={handlePlay}></video>
+      <video
+        muted={true}
+        className="video"
+        ref={videoRef}
+        src={`${supabaseStorageUrl}/${params.src}`}
+        controls={false}
+        loop
+        onClick={handlePlay}
+      ></video>
       <button className={PlayerClassName} />
       <VideoPlayerActions
         likes={params.likes}

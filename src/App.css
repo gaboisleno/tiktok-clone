@@ -7,6 +7,7 @@
 }
 
 main {
+  color: #fff;
   aspect-ratio: 9/16;
   width: 375px;
   height: auto;
