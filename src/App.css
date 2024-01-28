@@ -8,9 +8,10 @@
 
 main {
   aspect-ratio: 9/16;
-  overflow-y: scroll;
   width: 375px;
   height: auto;
   display: block;
   scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getVideos } from '../../services/VideosService';
 import VideoPlayer from '../../components/VideoPlayer/VideoPlayer';
-import './stles.module.css';
+import styles from './styles.module.css';
 
 export default function FeedVideos() {
   const [videos, setVideos] = useState<any[]>(Array());
@@ -17,7 +17,7 @@ export default function FeedVideos() {
     <section>
       {videos.map((video: any) => {
         return (
-          <div key={video.id} className="item">
+          <div key={video.id} className={styles.item}>
             <VideoPlayer {...video}></VideoPlayer>
           </div>
         );
