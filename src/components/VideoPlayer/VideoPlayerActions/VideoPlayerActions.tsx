@@ -1,3 +1,4 @@
+import { useLocation } from 'wouter';
 import { Heart, Comment, Foward } from '../../Icons/index';
 import './index.css';
 
@@ -8,6 +9,11 @@ export default function VideoPlayerActions({
   hearted = false,
   avatar = '',
 }: any) {
+  const [location, setLocation] = useLocation();
+
+  const handleProfile = () => {
+    setLocation('/upload');
+  };
   const handleLike = () => {
     window.alert('like');
   };
@@ -20,7 +26,7 @@ export default function VideoPlayerActions({
 
   return (
     <aside className="actions">
-      <div className="profile">
+      <div className="profile" onClick={handleProfile}>
         <img src={avatar} alt="" className="avatar" />
         <img src="assets/add.png" alt="" className="follow" />
       </div>
@@ -41,7 +47,7 @@ export default function VideoPlayerActions({
       </button>
 
       <button className="action album">
-        <img alt="album" src={avatar} />
+        <img alt="album" src="https://unavatar.io/gabboisleno" />
       </button>
     </aside>
   );

@@ -9,8 +9,8 @@ export const Navbar = () => {
   };
 
   return (
-    <footer className="navbar">
+    <div className="navbar">
       <button onClick={handleClick}>upload</button>
-    </footer>
+    </div>
   );
 };
